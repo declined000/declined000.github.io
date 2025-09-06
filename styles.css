@@ -1,116 +1,188 @@
-/* ====== Base ====== */
-:root{
-    --bg: #ffffff;
-    --fg: #111111;
-    --muted: #666666;
-    --link: #0b57d0;         /* subtle, accessible blue */
-    --rule: #eaeaea;
-    --maxw: 720px;
-    --lh: 1.6;
-    --pad: 28px;
-  }
-  
-  @media (prefers-color-scheme: dark){
-    :root{
-      --bg: #0d0d0f;
-      --fg: #e9e9ee;
-      --muted: #9a9aa3;
-      --link: #8ab4ff;
-      --rule: #22232a;
-    }
+/* =========================
+   Minimal dark design, asrvd-like
+   ========================= */
+
+   :root{
+    --bg: #0f0f11;
+    --panel: #121216;
+    --panel-2: #15151a;
+    --text: #e6e6eb;
+    --muted: #a3a3ad;
+    --muted-2: #8d8d96;
+    --border: #25252c;
+    --ring: #2f2f39;
+    --link: #8ab4ff;          /* calm blue */
+    --accent: #9a6bff;        /* for focus ring/hover */
+    --radius: 16px;
+    --radius-sm: 12px;
+    --shadow: 0 1px 0 rgba(255,255,255,.03) inset, 0 8px 30px rgba(0,0,0,.35);
+    --w: 860px;
   }
   
   *{ box-sizing: border-box; }
-  html,body{ height:100%; }
-  html{ font-size:16px; }
+  html,body{ height: 100%; }
+  html{ font-size: 16px; }
   body{
-    margin:0;
-    background:var(--bg);
-    color:var(--fg);
-    font: 400 1rem/var(--lh) 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    margin: 0;
+    background: radial-gradient(1200px 600px at 20% -10%, #1a1a21 0%, #0f0f11 60%) no-repeat,
+                var(--bg);
+    color: var(--text);
+    font: 400 1rem/1.7 "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
   
-  /* ====== Layout ====== */
-  .wrap{
-    max-width: var(--maxw);
-    margin: 0 auto;
-    padding: calc(var(--pad) * 1.5) var(--pad);
+  .page{
+    min-height: 100%;
   }
   
-  .block{ margin: 42px 0; }
-  .block + .block{ border-top: 1px solid var(--rule); padding-top: 32px; }
+  /* ====== Hero ====== */
+  .hero{
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, #141418, #101014);
+  }
   
-  /* ====== Header ====== */
-  .top h1{
-    font-family: 'Newsreader', Georgia, serif;
+  .hero-inner{
+    max-width: var(--w);
+    margin: 0 auto;
+    padding: 36px 20px 24px;
+  }
+  
+  .id{
+    text-align: left;
+    margin-bottom: 16px;
+  }
+  
+  h1{
+    margin: 0 0 4px 0;
+    font-family: "Newsreader", Georgia, serif;
     font-weight: 700;
-    font-size: clamp(2rem, 6vw, 3.25rem);
-    line-height: 1.15;
-    margin: 0 0 6px 0;
+    font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+    letter-spacing: .2px;
   }
   
   .tag{
+    margin: 0;
     color: var(--muted);
-    margin: 0 0 12px 0;
   }
   
-  .meta{
+  /* ====== Tabs (nav pill) ====== */
+  .tabs{
     display: inline-flex;
-    gap: 10px;
-    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px;
+  }
+  
+  .tab{
+    display: inline-block;
+    padding: 8px 14px;
     color: var(--muted);
-    font-size: 0.95rem;
-  }
-  
-  .meta a{
-    color: inherit;
     text-decoration: none;
-    border-bottom: 1px solid transparent;
+    border-radius: 999px;
+    transition: color .15s ease, background .15s ease;
   }
-  .meta a:hover{ border-bottom-color: currentColor; }
   
-  /* ====== Typography ====== */
+  .tab:hover{ color: var(--text); }
+  .tab.is-active{
+    background: #1a1a20;
+    color: var(--text);
+    box-shadow: inset 0 0 0 1px var(--ring);
+  }
+  
+  /* ====== Container & Cards ====== */
+  .container{
+    max-width: var(--w);
+    margin: 0 auto;
+    padding: 26px 20px 64px;
+  }
+  
+  .card{
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 22px 22px;
+    margin: 18px 0;
+  }
+  
   h2{
-    font-weight: 600;
-    font-size: 1.15rem;
-    letter-spacing: .01em;
-    margin: 0 0 12px 0;
-  }
-  
-  h3{
-    font-weight: 600;
+    margin: 0 0 10px 0;
     font-size: 1.05rem;
-    margin: 0 0 6px 0;
+    font-weight: 600;
+    color: var(--text);
   }
   
-  p{ margin: 0 0 12px 0; }
-  ul{ margin: 0; padding-left: 18px; }
-  li{ margin: 6px 0; }
-  
-  a{
-    color: var(--link);
-    text-underline-offset: 2px;
-    text-decoration-thickness: .06em;
+  .lead{
+    margin: 4px 0 0 0;
+    color: var(--muted);
+    font-size: 1.02rem;
   }
   
-  /* list with no bullets for writing links */
-  .list-plain{
-    list-style: none;
-    padding: 0;
-  }
-  .list-plain li{ margin: 6px 0; }
+  /* ====== Lists ====== */
+  .bullets{ margin: 0; padding-left: 18px; }
+  .bullets li{ margin: 6px 0; color: var(--muted); }
   
   /* ====== Project items ====== */
-  .item{ margin: 18px 0; }
-  .item p{ color: var(--muted); }
+  .item{
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    margin: 12px 0;
+  }
+  .item h3{
+    margin: 0 0 4px 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .item p{
+    margin: 0;
+    color: var(--muted-2);
+  }
+  
+  /* ====== Writing list ====== */
+  .list-plain{ list-style: none; padding: 0; margin: 0; }
+  .list-plain li{ margin: 8px 0; }
+  
+  /* ====== Links ====== */
+  a{
+    color: var(--link);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color .12s ease, color .12s ease;
+  }
+  a:hover{ border-bottom-color: currentColor; }
+  
+  /* ====== Contact grid ====== */
+  .links-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 14px 26px;
+  }
+  .links-grid h4{
+    margin: 0 0 6px 0;
+    font-weight: 600;
+    font-size: .95rem;
+    color: var(--muted);
+  }
   
   /* ====== Footer ====== */
   .foot{
-    border-top: 1px solid var(--rule);
-    margin-top: 42px;
-    padding-top: 16px;
+    text-align: center;
     color: var(--muted);
+    margin-top: 18px;
+  }
+  
+  /* ====== Accessibility helpers ====== */
+  .sr-only{
+    position: absolute !important;
+    clip: rect(1px,1px,1px,1px);
+    padding: 0 !important; border: 0 !important;
+    height: 1px !important; width: 1px !important;
+    overflow: hidden;
   }
   
