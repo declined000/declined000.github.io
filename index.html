@@ -2,169 +2,134 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wiktoria — Bioengineering • AI • Bioelectricity • Neuroscience</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wiktoria — Engineer & Researcher</title>
 
-  <!-- Inter: Thin (100) and Light (300) -->
+  <!-- Inter with ExtraLight (200) through Bold (700/800) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100;0,14..32,200;0,14..32,300;1,14..32,100;1,14..32,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ===================== HERO (landing) ===================== -->
-  <header class="container hero" id="landing">
-    <div>
-      <h1>
-        Hi— I’m Wiktoria<span class="typing"><span class="caret"></span></span>.
-      </h1>
-      <p class="hero-sub">
-        Engineer & AI/neuroscience researcher in the Bay Area. I work on
-        bioelectric signals, modeling, and tools that turn ideas into testable
-        science.
-      </p>
-      <p class="hero-sub" style="margin-top:1.25rem;"><em>Click anywhere to enter</em></p>
-    </div>
-
-    <aside class="portrait">
-      <img src="Wiktoria Pawlak 1.jpg" alt="Portrait of Wiktoria" onerror="this.src='assets/wiktoria.jpg'">
-    </aside>
-  </header>
-
-  <!-- ===================== PROFILE + TABS ===================== -->
-  <section class="container profile" id="app">
-    <div class="profile-row">
-      <div class="avatar">
-        <img src="Wiktoria Pawlak 1.jpg" alt="Avatar" />
-      </div>
-      <div>
-        <h2 style="margin:0">Wiktoria</h2>
-        <div class="badges">Bioengineering • AI • Bioelectricity • Neuroscience</div>
+  <!-- ===== SPLASH ===== -->
+  <section id="splash" class="splash" aria-label="Intro" role="dialog" aria-modal="true">
+    <div class="splash-inner">
+      <div class="hero-grid">
+        <div class="copy">
+          <h1 class="big">
+            <span class="faint">Hi—</span>
+            <span id="typeTarget" aria-live="polite"></span>
+            <span id="caret" class="caret" aria-hidden="true"></span>
+          </h1>
+          <p class="dek">
+            Engineer & AI/neuroscience researcher in the Bay Area.
+            I work on bioelectric signals, modeling, and tools that turn ideas into testable science.
+          </p>
+          <p class="hint">Click anywhere to enter</p>
+        </div>
+        <figure class="portrait">
+          <!-- Replace with your file name if different -->
+          <img src="Wiktoria Pawlak 1.jpg" alt="Portrait of Wiktoria">
+        </figure>
       </div>
     </div>
-
-    <!-- Square-ish tab bar (not rounded pills) -->
-    <nav class="tabs" role="tablist" aria-label="Primary">
-      <button class="tab" role="tab" aria-selected="true" data-tab="home">Home</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="now">Now</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="projects">Projects</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="papers">Papers</button>
-    </nav>
-
-    <!-- ===================== PANELS ===================== -->
-
-    <!-- HOME -->
-    <section id="tab-home" class="tab-panel" role="tabpanel" aria-labelledby="home" tabindex="0">
-      <div class="cards">
-        <div class="card">
-          <h2 class="eyebrow">Welcome</h2>
-          <p>
-            Hi! I’m Wiktoria. I explore bioelectric signals and build tools that make scientific
-            ideas testable. Use the tabs above to see what I’m doing <em>now</em>, browse
-            <em>projects</em>, or read my <em>papers</em>.
-          </p>
-        </div>
-
-        <div class="card">
-          <h2 class="eyebrow">Find me here</h2>
-          <dl class="link-grid">
-            <div>
-              <dt>GitHub</dt>
-              <dd><a href="https://github.com/declined000" target="_blank" rel="noopener">@declined000</a></dd>
-            </div>
-            <div>
-              <dt>X (formerly Twitter)</dt>
-              <dd><a href="#" target="_blank" rel="noopener">@handle</a></dd>
-            </div>
-            <div>
-              <dt>LinkedIn</dt>
-              <dd><a href="#" target="_blank" rel="noopener">@wiktoria</a></dd>
-            </div>
-            <div>
-              <dt>Email</dt>
-              <dd><a href="mailto:you@example.com">you@example.com</a></dd>
-            </div>
-            <div>
-              <dt>Discord</dt>
-              <dd>@wiktoria</dd>
-            </div>
-            <div>
-              <dt>CV</dt>
-              <dd><a href="https://read.cv/wiktoria" target="_blank" rel="noopener">read.cv/wiktoria</a></dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <!-- NOW -->
-    <section id="tab-now" class="tab-panel hidden" role="tabpanel" aria-labelledby="now" tabindex="0">
-      <div class="card">
-        <h2 class="eyebrow">Now ~</h2>
-        <p>
-          Crying over college assignments, trying to hit the gym consistently, and trying to get
-          familiar with dsa, and java (oops).
-        </p>
-        <p>
-          I'm confident enough with my web dev skills right now (still a noob though). Trying to
-          learn swift/swiftUI to build a macOS menubar app while completely ignoring my end
-          semester exams.
-        </p>
-        <p>
-          Apart from all this, I'm also trying to write more content and craft beautiful animated
-          UI components (will publish them soon at uil[dot]asrvd[dot]me).
-        </p>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="tab-projects" class="tab-panel hidden" role="tabpanel" aria-labelledby="projects" tabindex="0">
-      <div class="cards">
-        <article class="project">
-          <h3>Bioelectric State Simulator</h3>
-          <p class="muted">
-            Computational model exploring membrane potentials and pattern dynamics.
-          </p>
-        </article>
-
-        <article class="project">
-          <h3>Glioblastoma Signatures</h3>
-          <p class="muted">
-            Reproducible pipelines and visualizations for GBM-adjacent states.
-          </p>
-        </article>
-
-        <article class="project">
-          <h3>Shine (longevity AI)</h3>
-          <p class="muted">
-            Wearable-driven insights and research-backed daily protocols.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- PAPERS -->
-    <section id="tab-papers" class="tab-panel hidden" role="tabpanel" aria-labelledby="papers" tabindex="0">
-      <div class="card">
-        <h2 class="eyebrow">Papers</h2>
-        <ul class="paper-list">
-          <li>
-            <a href="#" target="_blank" rel="noopener">Analog vs. digital information in cells</a>
-          </li>
-          <li>
-            <a href="#" target="_blank" rel="noopener">Top-down causation in bioelectricity</a>
-          </li>
-          <li>
-            <a href="#" target="_blank" rel="noopener">Notes on regeneration and memory</a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <footer class="footer">© <span id="year"></span> Wiktoria</footer>
+    <div id="dot" class="dot" aria-hidden="true"></div>
   </section>
+
+  <!-- ===== APP ===== -->
+  <main id="app" class="app" hidden>
+    <div class="container">
+
+      <!-- Profile -->
+      <header class="profile">
+        <img class="avatar" src="Wiktoria Pawlak 1.jpg" alt="Wiktoria avatar">
+        <div class="who">
+          <h2 class="name">Wiktoria</h2>
+          <p class="tag">Bioengineering • AI • Bioelectricity • Neuroscience</p>
+        </div>
+      </header>
+
+      <!-- Sticky nav (rectangle) -->
+      <nav class="sticky-nav" aria-label="Primary">
+        <a class="pill" href="#home"     data-view="home">Home</a>
+        <a class="pill" href="#now"      data-view="now">Now</a>
+        <a class="pill" href="#projects" data-view="projects">Projects</a>
+        <a class="pill" href="#papers"   data-view="papers">Papers</a>
+      </nav>
+
+      <!-- HOME -->
+      <section class="view" id="view-home" data-view="home">
+        <section class="card">
+          <h3>Welcome</h3>
+          <p>
+            Hi! I’m Wiktoria. I explore bioelectric signals and build tools that make scientific ideas testable.
+            Use the tabs to see what I’m doing <em>now</em>, browse <em>projects</em>, or read my <em>papers</em>.
+          </p>
+        </section>
+
+        <!-- Find me here ~ (moved from Contact) -->
+        <section class="card contact-grid">
+          <h3>Find me here ~</h3>
+          <div class="cols">
+            <div><h4>GitHub</h4><p><a href="https://github.com/declined000" target="_blank" rel="noreferrer">@declined000</a></p></div>
+            <div><h4>X (formerly Twitter)</h4><p><a href="#" target="_blank" rel="noreferrer">@handle</a></p></div>
+            <div><h4>LinkedIn</h4><p><a href="#" target="_blank" rel="noreferrer">@wiktoria</a></p></div>
+            <div><h4>Email</h4><p><a href="mailto:you@example.com">you@example.com</a></p></div>
+            <div><h4>Discord</h4><p><a href="#" target="_blank" rel="noreferrer">@wiktoria</a></p></div>
+            <div><h4>CV</h4><p><a href="#" target="_blank" rel="noreferrer">read.cv/wiktoria</a></p></div>
+          </div>
+        </section>
+      </section>
+
+      <!-- NOW -->
+      <section class="view" id="view-now" data-view="now" hidden>
+        <section class="card">
+          <h3>Now</h3>
+          <ul>
+            <li>Writing notes in public & simplifying my research stack.</li>
+            <li>Modeling bioelectrical state changes & regenerative cues.</li>
+            <li>Reading: systems biology, neuromorphic interfaces.</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="view" id="view-projects" data-view="projects" hidden>
+        <section class="card">
+          <h3>Projects</h3>
+          <article class="item">
+            <h4><a href="#">Bioelectric State Simulator</a></h4>
+            <p>Computational model exploring membrane potentials and pattern dynamics.</p>
+          </article>
+          <article class="item">
+            <h4><a href="#">Glioblastoma Signatures</a></h4>
+            <p>Reproducible pipelines and visualizations for GBM-adjacent states.</p>
+          </article>
+          <article class="item">
+            <h4><a href="#">Shine (longevity AI)</a></h4>
+            <p>Wearable-driven insights and research-backed daily protocols.</p>
+          </article>
+        </section>
+      </section>
+
+      <!-- PAPERS (renamed from Writing) -->
+      <section class="view" id="view-papers" data-view="papers" hidden>
+        <section class="card">
+          <h3>Papers</h3>
+          <ul class="plain">
+            <li><a href="#">Analog vs. digital information in cells</a></li>
+            <li><a href="#">Top-down causation in bioelectricity</a></li>
+            <li><a href="#">Notes on regeneration and memory</a></li>
+          </ul>
+        </section>
+      </section>
+
+      <footer class="foot">© <span id="y"></span> Wiktoria</footer>
+    </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
