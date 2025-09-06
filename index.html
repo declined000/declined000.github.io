@@ -4,10 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Wiktoria — Engineer & Researcher</title>
-  <meta name="description" content="Bioengineering • AI • Bioelectricity • Neuroscience" />
+
+  <!-- Font (same everywhere) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -36,12 +38,12 @@
     <div id="dot" class="dot" aria-hidden="true"></div>
   </section>
 
-  <!-- ===== MAIN ===== -->
+  <!-- ===== APP ===== -->
   <main id="app" class="app" hidden>
     <div class="container">
 
-      <!-- Profile header (asrvd-like) -->
-      <header id="home" class="profile">
+      <!-- Profile (asrvd-like) -->
+      <header class="profile">
         <img class="avatar" src="Wiktoria Pawlak 1.jpg" alt="Wiktoria avatar">
         <div class="who">
           <h2 class="name">Wiktoria</h2>
@@ -49,78 +51,75 @@
         </div>
       </header>
 
-      <!-- Floating / sticky nav sits UNDER the profile header -->
+      <!-- Sticky nav UNDER the profile -->
       <nav class="sticky-nav" aria-label="Primary">
-        <a class="pill is-active" href="#home">Home</a>
-        <a class="pill" href="#now">Now</a>
-        <a class="pill" href="#writing">Writing</a>
-        <a class="pill" href="#projects">Projects</a>
-        <a class="pill" href="#contact">Contact</a>
+        <a class="pill" href="#home"    data-view="home">Home</a>
+        <a class="pill" href="#now"     data-view="now">Now</a>
+        <a class="pill" href="#writing" data-view="writing">Writing</a>
+        <a class="pill" href="#projects" data-view="projects">Projects</a>
+        <a class="pill" href="#contact" data-view="contact">Contact</a>
       </nav>
 
-      <section id="now" class="card">
-        <h3>Now</h3>
-        <ul>
-          <li>Writing notes in public & simplifying my research stack.</li>
-          <li>Modeling bioelectrical state changes & regenerative cues.</li>
-          <li>Reading: systems biology, neuromorphic interfaces.</li>
-        </ul>
+      <!-- ===== Views (single-page) ===== -->
+      <section class="view" id="view-home" data-view="home">
+        <section class="card">
+          <h3>Welcome</h3>
+          <p>Hi! I’m Wiktoria. I explore bioelectric signals and build tools that make scientific ideas testable. Grab a tab above to see what I’m doing <em>now</em>, browse <em>projects</em>, read my <em>writing</em>, or reach out via <em>contact</em>.</p>
+        </section>
       </section>
 
-      <section id="projects" class="card">
-        <h3>Projects</h3>
-        <article class="item"><h4><a href="#">Bioelectric State Simulator</a></h4><p>Computational model exploring membrane potentials and pattern dynamics.</p></article>
-        <article class="item"><h4><a href="#">Glioblastoma Signatures</a></h4><p>Reproducible pipelines and visualizations for GBM-adjacent states.</p></article>
-        <article class="item"><h4><a href="#">Shine (longevity AI)</a></h4><p>Wearable-driven insights and research-backed daily protocols.</p></article>
+      <section class="view" id="view-now" data-view="now" hidden>
+        <section class="card">
+          <h3>Now</h3>
+          <ul>
+            <li>Writing notes in public & simplifying my research stack.</li>
+            <li>Modeling bioelectrical state changes & regenerative cues.</li>
+            <li>Reading: systems biology, neuromorphic interfaces.</li>
+          </ul>
+        </section>
       </section>
 
-      <section id="writing" class="card">
-        <h3>Writing</h3>
-        <ul class="plain">
-          <li><a href="#">Analog vs. digital information in cells</a></li>
-          <li><a href="#">Top-down causation in bioelectricity</a></li>
-          <li><a href="#">Notes on regeneration and memory</a></li>
-        </ul>
+      <section class="view" id="view-writing" data-view="writing" hidden>
+        <section class="card">
+          <h3>Writing</h3>
+          <ul class="plain">
+            <li><a href="#">Analog vs. digital information in cells</a></li>
+            <li><a href="#">Top-down causation in bioelectricity</a></li>
+            <li><a href="#">Notes on regeneration and memory</a></li>
+          </ul>
+        </section>
       </section>
 
-      <!-- Find me here ~ -->
-      <section id="links" class="card contact-grid">
-        <h3>Find me here ~</h3>
-        <div class="cols">
-          <div>
-            <h4>GitHub</h4>
-            <p><a href="https://github.com/declined000" target="_blank" rel="noreferrer">@declined000</a></p>
-          </div>
-          <div>
-            <h4>X (formerly Twitter)</h4>
-            <p><a href="#" target="_blank" rel="noreferrer">@handle</a></p>
-          </div>
-          <div>
-            <h4>LinkedIn</h4>
-            <p><a href="#" target="_blank" rel="noreferrer">@wiktoria</a></p>
-          </div>
-          <div>
-            <h4>Email</h4>
-            <p><a href="mailto:you@example.com">you@example.com</a></p>
-          </div>
-          <div>
-            <h4>Discord</h4>
-            <p><a href="#" target="_blank" rel="noreferrer">@wiktoria</a></p>
-          </div>
-          <div>
-            <h4>CV</h4>
-            <p><a href="#" target="_blank" rel="noreferrer">read.cv/wiktoria</a></p>
-          </div>
-        </div>
+      <section class="view" id="view-projects" data-view="projects" hidden>
+        <section class="card">
+          <h3>Projects</h3>
+          <article class="item">
+            <h4><a href="#">Bioelectric State Simulator</a></h4>
+            <p>Computational model exploring membrane potentials and pattern dynamics.</p>
+          </article>
+          <article class="item">
+            <h4><a href="#">Glioblastoma Signatures</a></h4>
+            <p>Reproducible pipelines and visualizations for GBM-adjacent states.</p>
+          </article>
+          <article class="item">
+            <h4><a href="#">Shine (longevity AI)</a></h4>
+            <p>Wearable-driven insights and research-backed daily protocols.</p>
+          </article>
+        </section>
       </section>
 
-      <section id="contact" class="card">
-        <h3>Contact</h3>
-        <p>
-          <a href="mailto:you@example.com">you@example.com</a> ·
-          <a href="https://github.com/declined000" target="_blank" rel="noreferrer">GitHub</a> ·
-          <a href="#" target="_blank" rel="noreferrer">LinkedIn</a>
-        </p>
+      <section class="view" id="view-contact" data-view="contact" hidden>
+        <section class="card contact-grid">
+          <h3>Find me here ~</h3>
+          <div class="cols">
+            <div><h4>GitHub</h4><p><a href="https://github.com/declined000" target="_blank" rel="noreferrer">@declined000</a></p></div>
+            <div><h4>X (formerly Twitter)</h4><p><a href="#" target="_blank" rel="noreferrer">@handle</a></p></div>
+            <div><h4>LinkedIn</h4><p><a href="#" target="_blank" rel="noreferrer">@wiktoria</a></p></div>
+            <div><h4>Email</h4><p><a href="mailto:you@example.com">you@example.com</a></p></div>
+            <div><h4>Discord</h4><p><a href="#" target="_blank" rel="noreferrer">@wiktoria</a></p></div>
+            <div><h4>CV</h4><p><a href="#" target="_blank" rel="noreferrer">read.cv/wiktoria</a></p></div>
+          </div>
+        </section>
       </section>
 
       <footer class="foot">© <span id="y"></span> Wiktoria</footer>
