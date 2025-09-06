@@ -2,63 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Wiktoria — Engineer & Researcher</title>
   <meta name="description" content="Engineering • AI • Bioelectricity • Neuroscience" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <div class="page">
 
-    <!-- Top with tabs -->
-    <header class="hero">
-      <div class="hero-inner">
-        <div class="id">
-          <h1>Wiktoria</h1>
-          <p class="tag">Engineering • AI • Bioelectricity • Neuroscience</p>
+  <!-- Splash / Intro -->
+  <section id="splash" class="splash" aria-label="Intro" role="dialog" aria-modal="true">
+    <div class="splash-inner">
+      <header class="brand">W–M</header>
+
+      <div class="hero-grid">
+        <div class="copy">
+          <h1><span class="faint">Hi—</span> I’m Wiktoria.</h1>
+          <p class="dek">
+            Engineer & AI/neuroscience researcher in the Bay Area.<br/>
+            I work on bioelectric signals, modeling, and tools that turn ideas into testable science.
+          </p>
+          <p class="hint">Click anywhere to enter</p>
         </div>
 
-        <nav class="tabs" aria-label="Primary">
-          <a class="tab is-active" href="#home">Home</a>
-          <a class="tab" href="#now">Now</a>
-          <a class="tab" href="#writing">Writing</a>
-          <a class="tab" href="#projects">Projects</a>
-          <a class="tab" href="#contact">Contact</a>
-        </nav>
+        <figure class="portrait">
+          <!-- add portrait.jpg (square or 4:5 works) -->
+          <img src="Wiktoria Pawlak 1.jpg" alt="Portrait of Wiktoria">
+
+        </figure>
       </div>
-    </header>
+    </div>
 
-    <main class="container">
+    <!-- cursor dot -->
+    <div id="dot" class="dot" aria-hidden="true"></div>
+  </section>
 
-      <!-- NEW: Intro hero with photo & big type -->
-      <section id="home" class="intro card no-border">
-        <div class="intro-grid">
-          <div class="intro-copy">
-            <p class="eyebrow">Hi — I’m Wiktoria.</p>
-            <h2 class="display">
-              I’m an engineer & AI/neuroscience researcher in the Bay Area.
-              Currently I work on bioelectric signals, modeling, and tools that turn ideas into testable science.
-            </h2>
-            <div class="intro-cta">
-              <a class="btn" href="#projects">View my work</a>
-              <a class="btn ghost" href="#contact">Contact</a>
-            </div>
-          </div>
-
-          <div class="intro-photo">
-            <!-- Add a square image named avatar.jpg in your repo -->
-            <img src="avatar.jpg" alt="Portrait of Wiktoria" />
-          </div>
-        </div>
-      </section>
+  <!-- Main site -->
+  <main id="app" class="app" hidden>
+    <div class="container">
+      <header class="top">
+        <h2>Wiktoria</h2>
+        <p class="tag">Engineering • AI • Bioelectricity • Neuroscience</p>
+      </header>
 
       <section id="now" class="card">
         <h3>Now</h3>
-        <ul class="bullets">
+        <ul>
           <li>Writing notes in public & simplifying my research stack.</li>
           <li>Modeling bioelectrical state changes & regenerative cues.</li>
           <li>Reading: systems biology, neuromorphic interfaces.</li>
@@ -67,32 +58,14 @@
 
       <section id="projects" class="card">
         <h3>Projects</h3>
-
-        <article class="item">
-          <div class="item-body">
-            <h4><a href="#">Bioelectric State Simulator</a></h4>
-            <p>Computational model exploring membrane potentials and pattern dynamics.</p>
-          </div>
-        </article>
-
-        <article class="item">
-          <div class="item-body">
-            <h4><a href="#">Glioblastoma Signatures</a></h4>
-            <p>Reproducible pipelines and visualizations for GBM-adjacent states.</p>
-          </div>
-        </article>
-
-        <article class="item">
-          <div class="item-body">
-            <h4><a href="#">Shine (longevity AI)</a></h4>
-            <p>Wearable-driven insights and research-backed daily protocols.</p>
-          </div>
-        </article>
+        <article class="item"><h4><a href="#">Bioelectric State Simulator</a></h4><p>Computational model exploring membrane potentials and pattern dynamics.</p></article>
+        <article class="item"><h4><a href="#">Glioblastoma Signatures</a></h4><p>Reproducible pipelines and visualizations for GBM-adjacent states.</p></article>
+        <article class="item"><h4><a href="#">Shine (longevity AI)</a></h4><p>Wearable-driven insights and research-backed daily protocols.</p></article>
       </section>
 
       <section id="writing" class="card">
         <h3>Writing</h3>
-        <ul class="list-plain">
+        <ul class="plain">
           <li><a href="#">Analog vs. digital information in cells</a></li>
           <li><a href="#">Top-down causation in bioelectricity</a></li>
           <li><a href="#">Notes on regeneration and memory</a></li>
@@ -101,40 +74,17 @@
 
       <section id="contact" class="card">
         <h3>Contact</h3>
-        <div class="links-grid">
-          <div>
-            <h5>GitHub</h5>
-            <a href="https://github.com/declined000" target="_blank" rel="noreferrer">@declined000</a>
-          </div>
-          <div>
-            <h5>LinkedIn</h5>
-            <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noreferrer">@your-handle</a>
-          </div>
-          <div>
-            <h5>Email</h5>
-            <a href="mailto:you@example.com">you@example.com</a>
-          </div>
-          <div>
-            <h5>CV</h5>
-            <a href="#" target="_blank" rel="noreferrer">read.cv/wiktoria</a>
-          </div>
-        </div>
+        <p>
+          <a href="mailto:you@example.com">you@example.com</a> ·
+          <a href="https://github.com/declined000" target="_blank" rel="noreferrer">GitHub</a> ·
+          <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noreferrer">LinkedIn</a>
+        </p>
       </section>
 
-      <footer class="foot">
-        <small>© <span id="y"></span> Wiktoria</small>
-      </footer>
-    </main>
-  </div>
+      <footer class="foot">© <span id="y"></span> Wiktoria</footer>
+    </div>
+  </main>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-    const tabs = document.querySelectorAll('.tab');
-    const setActive = () => {
-      const hash = window.location.hash || '#home';
-      tabs.forEach(t => t.classList.toggle('is-active', t.getAttribute('href') === hash));
-    };
-    setActive(); window.addEventListener('hashchange', setActive);
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
