@@ -1,8 +1,7 @@
 /* Footer year */
-const y = document.getElementById('y');
-if (y) y.textContent = new Date().getFullYear();
+document.getElementById('y').textContent = new Date().getFullYear();
 
-/* ===== Typing + caret (splash only) ===== */
+/* ===== Typing + caret ===== */
 (function typeIn(){
   const target = document.getElementById('typeTarget');
   const caret  = document.getElementById('caret');
@@ -38,7 +37,7 @@ if (splash && dot){
   initRouter();
 }
 
-/* ===== Tiny hash router (single-page tabs) ===== */
+/* ===== Router for tabs ===== */
 function initRouter(){
   const pills = document.querySelectorAll('.pill');
   const views = document.querySelectorAll('.view');
@@ -56,11 +55,9 @@ function initRouter(){
     });
     if (!found){ location.replace('#home'); show('home'); setActive('home'); }
   }
-
   function route(){
     const hash = (location.hash || '#home').replace('#','').toLowerCase();
     setActive(hash); show(hash);
-    // Simpler scroll reset (prevents “welcome sticking” if an exception happened)
     window.scrollTo(0, 0);
   }
 
@@ -72,7 +69,6 @@ function initRouter(){
       route();
     });
   });
-
   addEventListener('hashchange', route);
 
   if (!location.hash) history.replaceState(null, '', '#home');

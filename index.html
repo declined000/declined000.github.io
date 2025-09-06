@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Wiktoria — Engineer & Researcher</title>
 
-  <!-- Primary font (Satoshi Variable via Fontshare) + Inter fallback -->
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1,2&display=swap" rel="stylesheet">
+  <!-- Inter with ExtraLight (200) through Bold (700/800) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -32,6 +31,7 @@
           <p class="hint">Click anywhere to enter</p>
         </div>
         <figure class="portrait">
+          <!-- Replace with your file name if different -->
           <img src="Wiktoria Pawlak 1.jpg" alt="Portrait of Wiktoria">
         </figure>
       </div>
@@ -52,25 +52,39 @@
         </div>
       </header>
 
-      <!-- Sticky nav (rectangle with subtle rounding) -->
+      <!-- Sticky nav (rectangle) -->
       <nav class="sticky-nav" aria-label="Primary">
         <a class="pill" href="#home"     data-view="home">Home</a>
         <a class="pill" href="#now"      data-view="now">Now</a>
-        <a class="pill" href="#writing"  data-view="writing">Writing</a>
         <a class="pill" href="#projects" data-view="projects">Projects</a>
-        <a class="pill" href="#contact"  data-view="contact">Contact</a>
+        <a class="pill" href="#papers"   data-view="papers">Papers</a>
       </nav>
 
-      <!-- VIEWS -->
+      <!-- HOME -->
       <section class="view" id="view-home" data-view="home">
         <section class="card">
           <h3>Welcome</h3>
-          <p>Hi! I’m Wiktoria. I explore bioelectric signals and build tools that make scientific ideas testable.
-             Use the tabs to see what I’m doing <em>now</em>, browse <em>projects</em>, read my <em>writing</em>, or reach out via <em>contact</em>.
+          <p>
+            Hi! I’m Wiktoria. I explore bioelectric signals and build tools that make scientific ideas testable.
+            Use the tabs to see what I’m doing <em>now</em>, browse <em>projects</em>, or read my <em>papers</em>.
           </p>
+        </section>
+
+        <!-- Find me here ~ (moved from Contact) -->
+        <section class="card contact-grid">
+          <h3>Find me here ~</h3>
+          <div class="cols">
+            <div><h4>GitHub</h4><p><a href="https://github.com/declined000" target="_blank" rel="noreferrer">@declined000</a></p></div>
+            <div><h4>X (formerly Twitter)</h4><p><a href="#" target="_blank" rel="noreferrer">@handle</a></p></div>
+            <div><h4>LinkedIn</h4><p><a href="#" target="_blank" rel="noreferrer">@wiktoria</a></p></div>
+            <div><h4>Email</h4><p><a href="mailto:you@example.com">you@example.com</a></p></div>
+            <div><h4>Discord</h4><p><a href="#" target="_blank" rel="noreferrer">@wiktoria</a></p></div>
+            <div><h4>CV</h4><p><a href="#" target="_blank" rel="noreferrer">read.cv/wiktoria</a></p></div>
+          </div>
         </section>
       </section>
 
+      <!-- NOW -->
       <section class="view" id="view-now" data-view="now" hidden>
         <section class="card">
           <h3>Now</h3>
@@ -82,17 +96,7 @@
         </section>
       </section>
 
-      <section class="view" id="view-writing" data-view="writing" hidden>
-        <section class="card">
-          <h3>Writing</h3>
-          <ul class="plain">
-            <li><a href="#">Analog vs. digital information in cells</a></li>
-            <li><a href="#">Top-down causation in bioelectricity</a></li>
-            <li><a href="#">Notes on regeneration and memory</a></li>
-          </ul>
-        </section>
-      </section>
-
+      <!-- PROJECTS -->
       <section class="view" id="view-projects" data-view="projects" hidden>
         <section class="card">
           <h3>Projects</h3>
@@ -111,17 +115,15 @@
         </section>
       </section>
 
-      <section class="view" id="view-contact" data-view="contact" hidden>
-        <section class="card contact-grid">
-          <h3>Find me here ~</h3>
-          <div class="cols">
-            <div><h4>GitHub</h4><p><a href="https://github.com/declined000" target="_blank" rel="noreferrer">@declined000</a></p></div>
-            <div><h4>X (formerly Twitter)</h4><p><a href="#" target="_blank" rel="noreferrer">@handle</a></p></div>
-            <div><h4>LinkedIn</h4><p><a href="#" target="_blank" rel="noreferrer">@wiktoria</a></p></div>
-            <div><h4>Email</h4><p><a href="mailto:you@example.com">you@example.com</a></p></div>
-            <div><h4>Discord</h4><p><a href="#" target="_blank" rel="noreferrer">@wiktoria</a></p></div>
-            <div><h4>CV</h4><p><a href="#" target="_blank" rel="noreferrer">read.cv/wiktoria</a></p></div>
-          </div>
+      <!-- PAPERS (renamed from Writing) -->
+      <section class="view" id="view-papers" data-view="papers" hidden>
+        <section class="card">
+          <h3>Papers</h3>
+          <ul class="plain">
+            <li><a href="#">Analog vs. digital information in cells</a></li>
+            <li><a href="#">Top-down causation in bioelectricity</a></li>
+            <li><a href="#">Notes on regeneration and memory</a></li>
+          </ul>
         </section>
       </section>
 
