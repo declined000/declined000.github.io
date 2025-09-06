@@ -1,73 +1,64 @@
-// Year
+// Footer year
 const y = document.getElementById('y');
 if (y) y.textContent = new Date().getFullYear();
 
-/* ========= Splash: typing + cursor-dot + transition ========= */
-const splash = document.getElementById('splash');
-const app    = document.getElementById('app');
-const dot    = document.getElementById('dot');
-
+/* ===== Typing + caret ===== */
 (function typeIn(){
   const target = document.getElementById('typeTarget');
-  if (!target) return;
-  const text = "I’m Wiktoria.";
-  let i = 0;
-  const speed = 70; // ms per char
+  const caret  = document.getElementById('caret');
+  if (!target || !caret) return;
 
+  const text  = "I’m Wiktoria.";
+  const speed = 60;     // ms per char
+  const delay = 250;    // pause before typing
+
+  let i = 0;
   function step(){
     target.textContent = text.slice(0, i++);
     if (i <= text.length) setTimeout(step, speed);
   }
-  step();
+  setTimeout(step, delay);
 })();
 
-// Dot follow & expand
+/* ===== Cursor dot & splash transition ===== */
+const splash = document.getElementById('splash');
+const app    = document.getElementById('app');
+const dot    = document.getElementById('dot');
+
 if (splash && dot){
-  let mx = window.innerWidth / 2;
-  let my = window.innerHeight / 2;
+  let mx = innerWidth/2, my = innerHeight/2;
 
-  function moveDot(x, y){
-    mx = x; my = y;
+  const moveDot = (x,y)=>{
+    mx=x; my=y;
     dot.style.transform = `translate3d(${mx}px, ${my}px, 0) scale(1)`;
-  }
+  };
 
-  window.addEventListener('mousemove', (e)=> moveDot(e.clientX, e.clientY));
-  window.addEventListener('touchmove', (e)=> {
-    const t = e.touches[0]; moveDot(t.clientX, t.clientY);
-  }, { passive: true });
+  addEventListener('mousemove', e=>moveDot(e.clientX, e.clientY));
+  addEventListener('touchmove', e=>{
+    const t=e.touches[0]; moveDot(t.clientX, t.clientY);
+  }, {passive:true});
 
-  function coverScale(x, y, size){
-    const w = window.innerWidth, h = window.innerHeight;
-    const r = size / 2;
-    const dx = Math.max(x, w - x);
-    const dy = Math.max(y, h - y);
-    const dist = Math.hypot(dx, dy);
-    return (dist + r) / r;
-  }
+  const coverScale = (x,y,size)=>{
+    const w=innerWidth,h=innerHeight,r=size/2;
+    const dx=Math.max(x,w-x), dy=Math.max(y,h-y);
+    return (Math.hypot(dx,dy)+r)/r;
+  };
 
-  function enterSite(){
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce){ splash.remove(); app.hidden = false; return; }
-
+  const enterSite = ()=>{
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches){
+      splash.remove(); app.hidden=false; return;
+    }
     const size = parseFloat(getComputedStyle(dot).getPropertyValue('--dot-size')) || 12;
-    const scale = coverScale(mx, my, size);
+    const scale = coverScale(mx,my,size);
     dot.style.transform = `translate3d(${mx}px, ${my}px, 0) scale(${scale})`;
+    dot.addEventListener('transitionend', ()=>{ app.hidden=false; splash.remove(); }, {once:true});
+  };
 
-    dot.addEventListener('transitionend', () => {
-      app.hidden = false;
-      splash.remove();
-    }, { once:true });
-  }
-
-  window.addEventListener('click', enterSite);
-  window.addEventListener('keydown', (e)=>{ if (e.key==='Enter'||e.key===' ') enterSite(); });
+  addEventListener('click', enterSite);
+  addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' ') enterSite(); });
 }
 
-/* ========= Sticky pill active state ========= */
+/* ===== Sticky pill active ===== */
 const pills = document.querySelectorAll('.pill');
-function setActiveFromHash(){
-  const hash = window.location.hash || '#home';
-  pills.forEach(p => p.classList.toggle('is-active', p.getAttribute('href') === hash));
-}
-setActiveFromHash();
-window.addEventListener('hashchange', setActiveFromHash);
+function setActive(){ const h=location.hash||'#home'; pills.forEach(p=>p.classList.toggle('is-active', p.getAttribute('href')===h)); }
+setActive(); addEventListener('hashchange', setActive);

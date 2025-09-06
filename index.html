@@ -7,8 +7,7 @@
   <meta name="description" content="Bioengineering • AI • Bioelectricity • Neuroscience" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Inter everywhere -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -17,12 +16,11 @@
   <section id="splash" class="splash" aria-label="Intro" role="dialog" aria-modal="true">
     <div class="splash-inner">
       <div class="hero-grid">
-        <!-- LEFT: Intro copy -->
         <div class="copy">
           <h1 class="big">
             <span class="faint">Hi—</span>
             <span id="typeTarget" aria-live="polite"></span>
-            <span id="caret" aria-hidden="true"></span>
+            <span id="caret" class="caret" aria-hidden="true"></span>
           </h1>
           <p class="dek">
             Engineer & AI/neuroscience researcher in the Bay Area.
@@ -30,23 +28,28 @@
           </p>
           <p class="hint">Click anywhere to enter</p>
         </div>
-
-        <!-- RIGHT: Portrait -->
         <figure class="portrait">
-          <img src="Wiktoria Pawlak 1.jpg" alt="Portrait of Wiktoria">
+          <img src="portrait.jpg" alt="Portrait of Wiktoria">
         </figure>
       </div>
     </div>
-
-    <!-- Cursor dot -->
     <div id="dot" class="dot" aria-hidden="true"></div>
   </section>
 
-  <!-- ===== MAIN SITE ===== -->
+  <!-- ===== MAIN ===== -->
   <main id="app" class="app" hidden>
     <div class="container">
 
-      <!-- Sticky / floating top bar -->
+      <!-- Profile header (asrvd-like) -->
+      <header id="home" class="profile">
+        <img class="avatar" src="portrait.jpg" alt="Wiktoria avatar">
+        <div class="who">
+          <h2 class="name">Wiktoria</h2>
+          <p class="tag">Bioengineering • AI • Bioelectricity • Neuroscience</p>
+        </div>
+      </header>
+
+      <!-- Floating / sticky nav sits UNDER the profile header -->
       <nav class="sticky-nav" aria-label="Primary">
         <a class="pill is-active" href="#home">Home</a>
         <a class="pill" href="#now">Now</a>
@@ -54,15 +57,6 @@
         <a class="pill" href="#projects">Projects</a>
         <a class="pill" href="#contact">Contact</a>
       </nav>
-
-      <!-- asrvd-like header: small avatar + name + subtitle -->
-      <header id="home" class="profile">
-        <img class="avatar" src="Wiktoria Pawlak 1.jpg" alt="Portrait of Wiktoria">
-        <div class="who">
-          <h2 class="name">Wiktoria</h2>
-          <p class="tag">Bioengineering • AI • Bioelectricity • Neuroscience</p>
-        </div>
-      </header>
 
       <section id="now" class="card">
         <h3>Now</h3>
@@ -89,12 +83,43 @@
         </ul>
       </section>
 
+      <!-- Find me here ~ -->
+      <section id="links" class="card contact-grid">
+        <h3>Find me here ~</h3>
+        <div class="cols">
+          <div>
+            <h4>GitHub</h4>
+            <p><a href="https://github.com/declined000" target="_blank" rel="noreferrer">@declined000</a></p>
+          </div>
+          <div>
+            <h4>X (formerly Twitter)</h4>
+            <p><a href="#" target="_blank" rel="noreferrer">@handle</a></p>
+          </div>
+          <div>
+            <h4>LinkedIn</h4>
+            <p><a href="#" target="_blank" rel="noreferrer">@wiktoria</a></p>
+          </div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:you@example.com">you@example.com</a></p>
+          </div>
+          <div>
+            <h4>Discord</h4>
+            <p><a href="#" target="_blank" rel="noreferrer">@wiktoria</a></p>
+          </div>
+          <div>
+            <h4>CV</h4>
+            <p><a href="#" target="_blank" rel="noreferrer">read.cv/wiktoria</a></p>
+          </div>
+        </div>
+      </section>
+
       <section id="contact" class="card">
         <h3>Contact</h3>
         <p>
           <a href="mailto:you@example.com">you@example.com</a> ·
           <a href="https://github.com/declined000" target="_blank" rel="noreferrer">GitHub</a> ·
-          <a href="https://www.linkedin.com/in/your-handle" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="#" target="_blank" rel="noreferrer">LinkedIn</a>
         </p>
       </section>
 
