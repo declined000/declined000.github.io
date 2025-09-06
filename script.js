@@ -63,7 +63,7 @@ if (splash && dot){
   window.addEventListener('keydown', (e)=>{ if (e.key==='Enter'||e.key===' ') enterSite(); });
 }
 
-/* ========= Sticky pill active state while navigating ========= */
+/* ========= Sticky pill active state ========= */
 const pills = document.querySelectorAll('.pill');
 function setActiveFromHash(){
   const hash = window.location.hash || '#home';

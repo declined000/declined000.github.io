@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Wiktoria — Engineer & Researcher</title>
-  <meta name="description" content="Engineering • AI • Bioelectricity • Neuroscience" />
+  <meta name="description" content="Bioengineering • AI • Bioelectricity • Neuroscience" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Inter only, everywhere -->
+  <!-- Inter everywhere -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -16,15 +16,13 @@
   <!-- ===== SPLASH ===== -->
   <section id="splash" class="splash" aria-label="Intro" role="dialog" aria-modal="true">
     <div class="splash-inner">
-      <header class="brand">W–M</header>
-
       <div class="hero-grid">
         <!-- LEFT: Intro copy -->
         <div class="copy">
           <h1 class="big">
             <span class="faint">Hi—</span>
             <span id="typeTarget" aria-live="polite"></span>
-            <span id="caret" aria-hidden="true">▍</span>
+            <span id="caret" aria-hidden="true"></span>
           </h1>
           <p class="dek">
             Engineer & AI/neuroscience researcher in the Bay Area.
@@ -47,6 +45,7 @@
   <!-- ===== MAIN SITE ===== -->
   <main id="app" class="app" hidden>
     <div class="container">
+
       <!-- Sticky / floating top bar -->
       <nav class="sticky-nav" aria-label="Primary">
         <a class="pill is-active" href="#home">Home</a>
@@ -56,9 +55,13 @@
         <a class="pill" href="#contact">Contact</a>
       </nav>
 
-      <header id="home" class="top">
-        <h2>Wiktoria</h2>
-        <p class="tag">Engineering • AI • Bioelectricity • Neuroscience</p>
+      <!-- asrvd-like header: small avatar + name + subtitle -->
+      <header id="home" class="profile">
+        <img class="avatar" src="Wiktoria Pawlak 1.jpg" alt="Portrait of Wiktoria">
+        <div class="who">
+          <h2 class="name">Wiktoria</h2>
+          <p class="tag">Bioengineering • AI • Bioelectricity • Neuroscience</p>
+        </div>
       </header>
 
       <section id="now" class="card">
