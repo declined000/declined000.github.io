@@ -7,12 +7,13 @@
   <meta name="description" content="Engineering • AI • Bioelectricity • Neuroscience" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,700&display=swap" rel="stylesheet">
+  <!-- Inter only, everywhere -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ===== SPLASH (full screen) ===== -->
+  <!-- ===== SPLASH ===== -->
   <section id="splash" class="splash" aria-label="Intro" role="dialog" aria-modal="true">
     <div class="splash-inner">
       <header class="brand">W–M</header>
@@ -20,7 +21,11 @@
       <div class="hero-grid">
         <!-- LEFT: Intro copy -->
         <div class="copy">
-          <h1><span class="faint">Hi—</span> I’m Wiktoria.</h1>
+          <h1 class="big">
+            <span class="faint">Hi—</span>
+            <span id="typeTarget" aria-live="polite"></span>
+            <span id="caret" aria-hidden="true">▍</span>
+          </h1>
           <p class="dek">
             Engineer & AI/neuroscience researcher in the Bay Area.
             I work on bioelectric signals, modeling, and tools that turn ideas into testable science.
@@ -30,7 +35,6 @@
 
         <!-- RIGHT: Portrait -->
         <figure class="portrait">
-          <!-- Place portrait.jpg in repo root -->
           <img src="Wiktoria Pawlak 1.jpg" alt="Portrait of Wiktoria">
         </figure>
       </div>
@@ -43,7 +47,16 @@
   <!-- ===== MAIN SITE ===== -->
   <main id="app" class="app" hidden>
     <div class="container">
-      <header class="top">
+      <!-- Sticky / floating top bar -->
+      <nav class="sticky-nav" aria-label="Primary">
+        <a class="pill is-active" href="#home">Home</a>
+        <a class="pill" href="#now">Now</a>
+        <a class="pill" href="#writing">Writing</a>
+        <a class="pill" href="#projects">Projects</a>
+        <a class="pill" href="#contact">Contact</a>
+      </nav>
+
+      <header id="home" class="top">
         <h2>Wiktoria</h2>
         <p class="tag">Engineering • AI • Bioelectricity • Neuroscience</p>
       </header>
