@@ -1,34 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wiktoria – Engineer & Researcher</title>
+  <meta name="description" content="Engineering • AI • Bioelectricity • Neuroscience" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Inter for UI, Newsreader for big title (optional, similar calm serif headline) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <h1>Hello, I am [Your Name].</h1>
-        <p>I'm a [Your Profession] living in [Your Location].</p>
+  <main class="wrap">
+    <header class="top">
+      <h1>Wiktoria</h1>
+      <p class="tag">Engineering • AI • Bioelectricity • Neuroscience</p>
+      <nav class="meta">
+        <a href="#now">Now</a>
+        <span>·</span>
+        <a href="#projects">Projects</a>
+        <span>·</span>
+        <a href="#writing">Writing</a>
+        <span>·</span>
+        <a href="#contact">Contact</a>
+      </nav>
     </header>
-    <section id="now">
-        <h2>Now</h2>
-        <p>Current activities and interests.</p>
+
+    <section id="intro" class="block">
+      <p>
+        I’m an engineer and AI/neuroscience researcher. I work on bioelectric
+        signals, modeling, and tooling that makes scientific ideas testable.
+      </p>
     </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Project Title</h3>
-            <p>Project description goes here. <a href="#">Learn more</a></p>
-        </div>
+
+    <section id="now" class="block">
+      <h2>Now</h2>
+      <ul>
+        <li>Building a minimal portfolio and writing notes in public.</li>
+        <li>Modeling bioelectrical state changes &amp; regenerative cues.</li>
+        <li>Reading: systems biology, neuromorphic interfaces.</li>
+      </ul>
     </section>
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Find me on <a href="#">GitHub</a>, <a href="#">LinkedIn</a>, and more.</p>
-        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+
+    <section id="projects" class="block">
+      <h2>Projects</h2>
+
+      <article class="item">
+        <h3><a href="#">Bioelectric State Simulator</a></h3>
+        <p>Computational model exploring membrane potentials and pattern dynamics.</p>
+      </article>
+
+      <article class="item">
+        <h3><a href="#">Glioblastoma Signatures</a></h3>
+        <p>Reproducible pipelines and visualizations for GBM-adjacent states.</p>
+      </article>
+
+      <article class="item">
+        <h3><a href="#">Shine (longevity AI)</a></h3>
+        <p>Wearable-driven insights and research-backed daily protocols.</p>
+      </article>
     </section>
-    <footer>
-        <p>&copy; 2023 [Your Name]. All rights reserved.</p>
+
+    <section id="writing" class="block">
+      <h2>Writing</h2>
+      <ul class="list-plain">
+        <li><a href="#">Analog vs. digital information in cells</a></li>
+        <li><a href="#">Top-down causation in bioelectricity</a></li>
+        <li><a href="#">Notes on regeneration and memory</a></li>
+      </ul>
+    </section>
+
+    <section id="contact" class="block">
+      <h2>Contact</h2>
+      <p>
+        <a href="mailto:you@example.com">you@example.com</a> ·
+        <a href="https://github.com/yourhandle" target="_blank" rel="noreferrer">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/yourhandle" target="_blank" rel="noreferrer">LinkedIn</a>
+      </p>
+    </section>
+
+    <footer class="foot">
+      <small>© <span id="y"></span> Wiktoria</small>
     </footer>
+  </main>
+
+  <script>
+    // tiny enhancement: current year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
