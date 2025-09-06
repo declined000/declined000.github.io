@@ -14,7 +14,7 @@ if (y) y.textContent = new Date().getFullYear();
   setTimeout(step, delay);
 })();
 
-/* ===== Splash dot & transition (only if splash exists) ===== */
+/* ===== Splash dot & transition ===== */
 const splash = document.getElementById('splash');
 const app    = document.getElementById('app');
 const dot    = document.getElementById('dot');
@@ -35,7 +35,6 @@ if (splash && dot){
   addEventListener('click', enter);
   addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' ') enter(); });
 }else{
-  /* No splash (e.g. debugging) */
   initRouter();
 }
 
@@ -61,10 +60,10 @@ function initRouter(){
   function route(){
     const hash = (location.hash || '#home').replace('#','').toLowerCase();
     setActive(hash); show(hash);
-    scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+    // Simpler scroll reset (prevents “welcome sticking” if an exception happened)
+    window.scrollTo(0, 0);
   }
 
-  // Clicks on pills (prevent default jump so it feels smoother)
   pills.forEach(p=>{
     p.addEventListener('click', e=>{
       e.preventDefault();
@@ -76,7 +75,6 @@ function initRouter(){
 
   addEventListener('hashchange', route);
 
-  // Initial route
   if (!location.hash) history.replaceState(null, '', '#home');
   route();
 }

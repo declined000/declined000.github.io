@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Wiktoria — Engineer & Researcher</title>
 
-  <!-- Font (same everywhere) -->
+  <!-- Primary font (Satoshi Variable via Fontshare) + Inter fallback -->
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@1,2&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -42,7 +43,7 @@
   <main id="app" class="app" hidden>
     <div class="container">
 
-      <!-- Profile (asrvd-like) -->
+      <!-- Profile -->
       <header class="profile">
         <img class="avatar" src="Wiktoria Pawlak 1.jpg" alt="Wiktoria avatar">
         <div class="who">
@@ -51,20 +52,22 @@
         </div>
       </header>
 
-      <!-- Sticky nav UNDER the profile -->
+      <!-- Sticky nav (rectangle with subtle rounding) -->
       <nav class="sticky-nav" aria-label="Primary">
-        <a class="pill" href="#home"    data-view="home">Home</a>
-        <a class="pill" href="#now"     data-view="now">Now</a>
-        <a class="pill" href="#writing" data-view="writing">Writing</a>
+        <a class="pill" href="#home"     data-view="home">Home</a>
+        <a class="pill" href="#now"      data-view="now">Now</a>
+        <a class="pill" href="#writing"  data-view="writing">Writing</a>
         <a class="pill" href="#projects" data-view="projects">Projects</a>
-        <a class="pill" href="#contact" data-view="contact">Contact</a>
+        <a class="pill" href="#contact"  data-view="contact">Contact</a>
       </nav>
 
-      <!-- ===== Views (single-page) ===== -->
+      <!-- VIEWS -->
       <section class="view" id="view-home" data-view="home">
         <section class="card">
           <h3>Welcome</h3>
-          <p>Hi! I’m Wiktoria. I explore bioelectric signals and build tools that make scientific ideas testable. Grab a tab above to see what I’m doing <em>now</em>, browse <em>projects</em>, read my <em>writing</em>, or reach out via <em>contact</em>.</p>
+          <p>Hi! I’m Wiktoria. I explore bioelectric signals and build tools that make scientific ideas testable.
+             Use the tabs to see what I’m doing <em>now</em>, browse <em>projects</em>, read my <em>writing</em>, or reach out via <em>contact</em>.
+          </p>
         </section>
       </section>
 
