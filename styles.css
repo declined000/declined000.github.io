@@ -17,13 +17,18 @@
     --dot-size:12px;
     --dot-color:#f1ece7;
   
-    --w:1160px;
+    /* content column width (you asked for ~500) */
+    --content-width:500px;
+  
     --radius:14px;
     --containerTop:128px;
   }
   
   /* Inter everywhere */
-  html{font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-size:16px}
+  html{
+    font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    font-size:16px;
+  }
   body{
     margin:0; color:var(--text); line-height:1.75; font-weight:100; /* Inter Thin */
     -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; letter-spacing:.005em;
@@ -32,7 +37,8 @@
       radial-gradient(1000px 600px at 85% 0%, rgba(180,130,90,.08), transparent 55%) fixed,
       linear-gradient(180deg, var(--bg-2), var(--bg-1)) fixed;
   }
-  *{box-sizing:border-box} html,body{height:100%}
+  *{box-sizing:border-box}
+  html,body{height:100%}
   
   /* ===== SPLASH ===== */
   .splash{
@@ -43,7 +49,7 @@
       linear-gradient(180deg, #17130f, #0f0d0b) fixed;
   }
   .splash-inner{
-    max-width:var(--w); margin:0 auto;
+    max-width:1160px; margin:0 auto;
     min-height:100vh; display:grid; align-content:center;
     padding:96px 40px 72px;
   }
@@ -94,31 +100,45 @@
   
   /* ===== APP ===== */
   .app[hidden]{display:none}
-  .container{ max-width:860px; margin:0 auto; padding:var(--containerTop) 20px 96px }
+  /* Narrower reading column */
+  .container{
+    max-width:var(--content-width);
+    margin:0 auto;
+    padding:var(--containerTop) 20px 96px;
+  }
   
   /* headings use Inter Light */
   h1,h2,h3,h4,h5{ font-weight:300; letter-spacing:.01em; margin:0 0 .35em }
   
-  /* profile */
+  /* Global reading tweaks for everything under the bar */
+  .container p,
+  .container li{
+    color:var(--text);
+    font-weight:200;
+    font-size:1.08rem;
+    line-height:1.9;
+    letter-spacing:.01em;
+  }
+  
   .profile{ display:flex; align-items:center; gap:12px; margin:0 0 12px }
   .avatar{ width:42px; height:42px; border-radius:999px; object-fit:cover; object-position:50% 38%; border:1px solid var(--line) }
   .name{ margin:0; font-size:1.36rem }
-  .tag{ margin:3px 0 0 0; color:var(--muted) }
+  .tag{ margin:3px 0 0 0; color:var(--muted); font-weight:200 }
   
   /* ===== sticky nav — lighter & less boxy ===== */
   .sticky-nav{
     position:sticky; top:22px; z-index:50;
     display:flex; flex-wrap:wrap; gap:10px;
     margin:18px 0 26px; padding:10px 12px;
-    background:rgba(25,20,17,.28);          /* lighter than before */
-    border:1px solid rgba(255,255,255,.06); /* faint edge */
+    background:rgba(25,20,17,.28);
+    border:1px solid rgba(255,255,255,.06);
     border-radius:16px;
-    box-shadow:none;                         /* no heavy shadow */
+    box-shadow:none;
     backdrop-filter:blur(4px);
   }
   .pill{
     padding:10px 16px; border-radius:12px;
-    color:rgba(255,255,255,.75); text-decoration:none; border:1px solid transparent;
+    color:rgba(255,255,255,.78); text-decoration:none; border:1px solid transparent;
     font-weight:300;
   }
   .pill:hover{ color:var(--text) }
@@ -131,7 +151,7 @@
   /* ===== de-boxed content (no panels) ===== */
   .card{
     background:transparent; border:none; box-shadow:none;
-    padding:6px 0 18px; margin:18px 0;
+    padding:6px 0 18px; margin:22px 0;
   }
   .card h3{ font-weight:300 }
   
