@@ -6,24 +6,27 @@
   <meta name="theme-color" content="#120e0b" />
   <title>Wiktoria — Engineer & Researcher</title>
 
-  <!-- Inter with Thin (100) + Light (300) + Regular (400) for fallbacks -->
+  <!-- Inter: Thin(100)/Light(300)/Regular(400)/Bold(700) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ===== SPLASH (intro with typing + bubble transition) ===== -->
+  <!-- ===== SPLASH ===== -->
   <section id="splash" class="splash" aria-label="Intro" role="dialog" aria-modal="true">
     <div class="splash-inner">
       <div class="hero-grid">
         <div class="copy">
           <h1 class="big">
             <span class="faint">Hi—</span>
-            <span id="typeTarget" aria-live="polite"></span>
-            <span id="caret" class="caret" aria-hidden="true"></span>
+            <!-- keep caret from causing a wrap -->
+            <span class="typewrap">
+              <span id="typeTarget" aria-live="polite"></span>
+              <span id="caret" class="caret" aria-hidden="true"></span>
+            </span>
           </h1>
           <p class="dek">
             Engineer & AI/neuroscience researcher in the Bay Area.
@@ -33,21 +36,19 @@
         </div>
 
         <figure class="portrait">
-          <!-- If you move the image, just update the src here and in the avatar below -->
           <img src="Wiktoria Pawlak 1.jpg" alt="Portrait of Wiktoria">
         </figure>
       </div>
     </div>
 
-    <!-- expanding dot for the transition -->
     <div id="dot" class="dot" aria-hidden="true"></div>
   </section>
 
-  <!-- ===== APP (single-page tabs) ===== -->
+  <!-- ===== APP ===== -->
   <main id="app" class="app" hidden>
     <div class="container">
 
-      <!-- Profile header -->
+      <!-- profile -->
       <header class="profile">
         <img class="avatar" src="Wiktoria Pawlak 1.jpg" alt="Wiktoria avatar">
         <div class="who">
@@ -56,7 +57,7 @@
         </div>
       </header>
 
-      <!-- Sticky nav (rectangular, square-ish corners) -->
+      <!-- tabs -->
       <nav class="sticky-nav" aria-label="Primary">
         <a class="pill" href="#home"     data-view="home">Home</a>
         <a class="pill" href="#now"      data-view="now">Now</a>
@@ -74,7 +75,7 @@
           </p>
         </section>
 
-        <!-- Find me here (contact moved onto Home) -->
+        <!-- find me here -->
         <section class="card contact-grid">
           <h3>Find me here</h3>
           <div class="cols">
