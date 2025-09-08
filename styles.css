@@ -21,7 +21,7 @@
   /* tab (pill) sizing */
   --pill-h:44px;           /* explicit height for cross-browser match */
   --pill-pad-x:18px;       /* left/right padding */
-  --pill-radius:6px;       /* squarer tabs */
+  --pill-radius:4px;       /* squarer tabs */
 
   /* splash dot */
   --dot-size:12px;
