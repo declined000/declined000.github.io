@@ -8,19 +8,19 @@
   --link:#d5b98c;
 
   /* layout */
-  --hero-w:1160px;         /* splash grid width */
-  --container-w:920px;     /* page content width (matches ref feel) */
+  --hero-w:1160px;          /* splash grid width */
+  --container-w:920px;      /* page content width (ref feel) */
   --containerTop:132px;
 
-  /* nav sizing (compact) */
+  /* nav sizing (compact, squarer) */
   --nav-pad-y:8px;
   --nav-pad-x:12px;
-  --nav-radius:10px;       /* <- less rounded, like the ref */
-  --nav-max-w:880px;       /* <- bar itself a bit narrower than container */
+  --nav-radius:8px;         /* less rounded bar */
+  --nav-max-w:880px;        /* bar slightly narrower than container */
 
-  --pill-pad-y:8px;
-  --pill-pad-x:14px;
-  --pill-radius:10px;      /* <- less rounded pills */
+  --pill-pad-y:6px;         /* shorter pills */
+  --pill-pad-x:12px;
+  --pill-radius:6px;        /* squarer corners */
 
   /* splash dot */
   --dot-size:12px;
@@ -118,7 +118,7 @@ h1,h2,h3,h4,h5{ font-weight:300; letter-spacing:.01em; margin:0 0 .35em }
 .name{ margin:0; font-size:1.6rem; font-weight:300 }
 .tag{ margin:0; color:var(--muted) }
 
-/* ===== sticky nav — compact, less rounded, slightly narrower than container ===== */
+/* ===== sticky nav — compact, squarer, slightly narrower ===== */
 .sticky-nav{
   position:sticky; top:22px; z-index:50;
   display:flex; align-items:center; flex-wrap:wrap; gap:8px;
@@ -146,7 +146,7 @@ h1,h2,h3,h4,h5{ font-weight:300; letter-spacing:.01em; margin:0 0 .35em }
   text-decoration:none;
   border:1px solid transparent;
   font-weight:300;
-  line-height:1;           /* <-- keeps the pill physically shorter */
+  line-height:1;           /* keeps the pill physically shorter */
 }
 .pill:hover{ color:var(--text) }
 .pill.is-active{
