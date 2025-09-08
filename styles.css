@@ -9,14 +9,14 @@
 
   /* sizing */
   --hero-w:1160px;       /* splash grid width */
-  --container-w: 1040px; /* <<< MATCH reference site width */
+  --container-w: 920px;  /* <<< narrower overall content, matches ref look */
   --containerTop:132px;
 
-  /* nav sizing to match reference */
-  --nav-pad-y:12px;
-  --nav-pad-x:16px;
-  --pill-pad-y:12px;
-  --pill-pad-x:18px;
+  /* nav sizing (compact like ref) */
+  --nav-pad-y:8px;       /* bar height ↓ */
+  --nav-pad-x:12px;
+  --pill-pad-y:8px;      /* pill height ↓ */
+  --pill-pad-x:14px;
   --pill-radius:12px;
 
   /* splash dot */
@@ -96,12 +96,12 @@ body{
 /* ===== APP ===== */
 .app[hidden]{display:none}
 .container{
-  max-width:var(--container-w);               /* <<< wider like reference */
+  max-width:var(--container-w);
   margin:0 auto;
-  padding:var(--containerTop) 24px 96px;
+  padding:var(--containerTop) 20px 96px;
 }
 
-/* headings use Inter Light for a biotech-y feel */
+/* headings */
 h1,h2,h3,h4,h5{ font-weight:300; letter-spacing:.01em; margin:0 0 .35em }
 
 /* profile */
@@ -110,24 +110,28 @@ h1,h2,h3,h4,h5{ font-weight:300; letter-spacing:.01em; margin:0 0 .35em }
 .name{ margin:0; font-size:1.7rem; font-weight:300 }
 .tag{ margin:3px 0 0 0; color:var(--muted) }
 
-/* ===== sticky nav — match reference size ===== */
+/* ===== sticky nav — compact width & height ===== */
 .sticky-nav{
-  position:sticky; top:24px; z-index:50;
-  display:flex; flex-wrap:wrap; gap:12px;
-  margin:20px 0 28px; padding:var(--nav-pad-y) var(--nav-pad-x);
-  background:rgba(25,20,17,.28);
+  position:sticky; top:22px; z-index:50;
+  display:flex; flex-wrap:wrap; gap:8px;
+  margin:18px 0 24px;
+  padding:var(--nav-pad-y) var(--nav-pad-x);
+  background:rgba(25,20,17,.26);
   border:1px solid rgba(255,255,255,.06);
-  border-radius:16px;
+  border-radius:14px;
   box-shadow:none;
   -webkit-backdrop-filter:blur(4px);
   backdrop-filter:blur(4px);
-  font-size:1.02rem; /* slightly larger text inside the bar */
+  font-size:.98rem;            /* text size inside bar */
 }
+
+/* pills */
 .pill{
   padding:var(--pill-pad-y) var(--pill-pad-x);
   border-radius:var(--pill-radius);
-  color:rgba(255,255,255,.78); text-decoration:none; border:1px solid transparent;
-  font-weight:300;
+  color:rgba(255,255,255,.78);
+  text-decoration:none; border:1px solid transparent;
+  font-weight:300; line-height:1.1;  /* keeps pills short */
 }
 .pill:hover{ color:var(--text) }
 .pill.is-active{
@@ -136,7 +140,7 @@ h1,h2,h3,h4,h5{ font-weight:300; letter-spacing:.01em; margin:0 0 .35em }
   border-color:rgba(255,255,255,.08);
 }
 
-/* ===== de-boxed content (no visible panels) ===== */
+/* de-boxed content */
 .card{ background:transparent; border:none; box-shadow:none; padding:8px 0 20px; margin:18px 0 }
 .item{ background:transparent; border:none; box-shadow:none; padding:10px 0; margin:8px 0 }
 .item h3{ margin:0 0 4px 0; font-weight:300 }
@@ -156,11 +160,10 @@ a:hover{ border-bottom-color:currentColor }
 @keyframes fade{ from{opacity:0; transform:translateY(4px)} to{opacity:1; transform:none} }
 
 /* contact grid */
-.contact-grid h2{ margin-bottom:10px }
 .contact-grid .cols{
   display:grid; grid-template-columns:repeat(3, minmax(0,1fr));
   gap:10px 18px; margin-top:6px
 }
-.contact-grid h3{ margin:8px 0 2px 0; color:#cec4ba; font-weight:300; font-size:.96rem }
+.contact-grid h4{ margin:8px 0 2px 0; color:#cec4ba; font-weight:300; font-size:.96rem }
 .contact-grid p{ margin:0 }
 @media (max-width:720px){ .contact-grid .cols{ grid-template-columns:repeat(2, minmax(0,1fr)) } }
