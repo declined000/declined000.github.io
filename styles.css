@@ -8,33 +8,30 @@
   --link:#d5b98c;
 
   /* layout */
-  --hero-w:1160px;        /* splash grid width */
-  --container-w:920px;    /* page content width */
+  --hero-w:1160px;         /* splash grid width */
+  --container-w:920px;     /* page content width (matches ref feel) */
   --containerTop:132px;
 
-  /* nav sizing (compact, squarer) */
-  --nav-max-w:880px;      /* bar narrower than container */
-  --nav-pad-y:10px;       /* bar height */
-  --nav-pad-x:14px;
-  --nav-radius:12px;      /* bar corners (squarer than before) */
+  /* nav sizing (taller, more square) */
+  --nav-pad-y:10px;        /* bar vertical padding */
+  --nav-pad-x:14px;        /* horizontal */
+  --nav-radius:10px;       /* less rounded */
+  --nav-max-w:880px;       /* slightly narrower than container */
 
-  --pill-pad-y:10px;      /* pill height */
-  --pill-pad-x:16px;
-  --pill-radius:12px;     /* pill corners (squarer) */
+  --pill-pad-y:10px;       /* taller pills */
+  --pill-pad-x:16px;       /* balanced width */
+  --pill-radius:10px;      /* less rounded */
 
   /* splash dot */
   --dot-size:12px;
   --dot-color:#f1ece7;
 }
 
-/* Inter everywhere (reduce cross-browser variation a bit) */
+/* Inter everywhere */
 html{
   font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   font-size:16px;
   -webkit-text-size-adjust:100%;
-  text-size-adjust:100%;
-  font-synthesis-weight:none;       /* helps Chrome/Edge render weights similarly */
-  font-optical-sizing:auto;
 }
 body{
   margin:0; color:var(--text); line-height:1.75; font-weight:100;
@@ -63,7 +60,7 @@ html,body{height:100%}
 .hero-grid{display:grid; grid-template-columns:1.25fr .75fr; gap:44px; align-items:center}
 @media (max-width:980px){.hero-grid{grid-template-columns:1fr; gap:24px}}
 
-/* headline (no wrap on desktop) */
+/* headline */
 .big{
   margin:0 0 14px 0;
   font-weight:700;
@@ -115,13 +112,13 @@ html,body{height:100%}
 /* headings */
 h1,h2,h3,h4,h5{ font-weight:300; letter-spacing:.01em; margin:0 0 .35em }
 
-/* profile (a touch larger for better proportion) */
+/* profile */
 .profile{ display:flex; align-items:center; gap:14px; margin:0 0 14px }
 .avatar{ width:56px; height:56px; border-radius:999px; object-fit:cover; object-position:50% 38%; border:1px solid var(--line) }
 .name{ margin:0; font-size:1.6rem; font-weight:300 }
 .tag{ margin:0; color:var(--muted) }
 
-/* ===== sticky nav — compact + square ===== */
+/* ===== sticky nav ===== */
 .sticky-nav{
   position:sticky; top:22px; z-index:50;
   display:flex; align-items:center; flex-wrap:wrap; gap:8px;
@@ -137,10 +134,10 @@ h1,h2,h3,h4,h5{ font-weight:300; letter-spacing:.01em; margin:0 0 .35em }
   -webkit-backdrop-filter:blur(4px);
   backdrop-filter:blur(4px);
 
-  font-size:.95rem;                 /* slightly smaller label text like the ref */
+  font-size:.98rem;
 }
 
-/* pills (shorter, squarer) */
+/* pills */
 .pill{
   padding:var(--pill-pad-y) var(--pill-pad-x);
   border-radius:var(--pill-radius);
@@ -148,7 +145,7 @@ h1,h2,h3,h4,h5{ font-weight:300; letter-spacing:.01em; margin:0 0 .35em }
   text-decoration:none;
   border:1px solid transparent;
   font-weight:300;
-  line-height:1.0;                  /* keeps pills physically shorter */
+  line-height:1.2;           /* taller text area inside */
 }
 .pill:hover{ color:var(--text) }
 .pill.is-active{
@@ -183,7 +180,6 @@ a:hover{ border-bottom-color:currentColor }
 }
 .contact-grid h4{ margin:8px 0 2px 0; color:#cec4ba; font-weight:300; font-size:.96rem }
 .contact-grid p{ margin:0 }
-
 @media (max-width:720px){
   .contact-grid .cols{ grid-template-columns:repeat(2, minmax(0,1fr)) }
   .avatar{ width:48px; height:48px }
