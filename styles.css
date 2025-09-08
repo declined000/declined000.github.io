@@ -15,7 +15,7 @@
   /* nav sizing (taller, squarer) */
   --nav-pad-y:12px;        /* bar vertical padding */
   --nav-pad-x:16px;
-  --nav-radius:8px;       /* bar corner roundness */
+  --nav-radius:6px;       /* bar corner roundness */
   --nav-max-w:880px;       /* bar max width (keeps it a bit narrower) */
 
   /* tab (pill) sizing */
