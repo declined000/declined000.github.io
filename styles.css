@@ -7,17 +7,20 @@
   --line:#221c18;
   --link:#d5b98c;
 
-  /* sizing */
-  --hero-w:1160px;       /* splash grid width */
-  --container-w: 920px;  /* <<< narrower overall content, matches ref look */
+  /* layout */
+  --hero-w:1160px;         /* splash grid width */
+  --container-w:920px;     /* page content width (matches ref feel) */
   --containerTop:132px;
 
-  /* nav sizing (compact like ref) */
-  --nav-pad-y:8px;       /* bar height ↓ */
+  /* nav sizing (compact) */
+  --nav-pad-y:8px;
   --nav-pad-x:12px;
-  --pill-pad-y:8px;      /* pill height ↓ */
+  --nav-radius:10px;       /* <- less rounded, like the ref */
+  --nav-max-w:880px;       /* <- bar itself a bit narrower than container */
+
+  --pill-pad-y:8px;
   --pill-pad-x:14px;
-  --pill-radius:12px;
+  --pill-radius:10px;      /* <- less rounded pills */
 
   /* splash dot */
   --dot-size:12px;
@@ -25,7 +28,11 @@
 }
 
 /* Inter everywhere */
-html{font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;font-size:16px}
+html{
+  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-size:16px;
+  -webkit-text-size-adjust:100%;
+}
 body{
   margin:0; color:var(--text); line-height:1.75; font-weight:100;
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; letter-spacing:.005em;
@@ -34,7 +41,8 @@ body{
     radial-gradient(1000px 600px at 85% 0%, rgba(180,130,90,.08), transparent 55%) fixed,
     linear-gradient(180deg, var(--bg-2), var(--bg-1)) fixed;
 }
-*{box-sizing:border-box} html,body{height:100%}
+*{box-sizing:border-box}
+html,body{height:100%}
 
 /* ===== SPLASH ===== */
 .splash{
@@ -52,7 +60,7 @@ body{
 .hero-grid{display:grid; grid-template-columns:1.25fr .75fr; gap:44px; align-items:center}
 @media (max-width:980px){.hero-grid{grid-template-columns:1fr; gap:24px}}
 
-/* headline (stop wrapping on desktop) */
+/* headline (no wrap on desktop) */
 .big{
   margin:0 0 14px 0;
   font-weight:700;
@@ -62,7 +70,7 @@ body{
 @media (max-width:980px){ .big{ white-space:normal } }
 .faint{ color:#ddd6cf; opacity:.78; font-weight:700; margin-right:.22rem }
 
-/* keep caret from forcing a new line */
+/* caret bundle */
 .typewrap{ position:relative; display:inline-block; white-space:nowrap }
 #typeTarget{ font-weight:700 }
 .caret{
@@ -104,34 +112,41 @@ body{
 /* headings */
 h1,h2,h3,h4,h5{ font-weight:300; letter-spacing:.01em; margin:0 0 .35em }
 
-/* profile */
+/* profile (avatar a bit bigger for better ratio) */
 .profile{ display:flex; align-items:center; gap:14px; margin:0 0 14px }
-.avatar{ width:44px; height:44px; border-radius:999px; object-fit:cover; object-position:50% 38%; border:1px solid var(--line) }
-.name{ margin:0; font-size:1.7rem; font-weight:300 }
-.tag{ margin:3px 0 0 0; color:var(--muted) }
+.avatar{ width:56px; height:56px; border-radius:999px; object-fit:cover; object-position:50% 38%; border:1px solid var(--line) }
+.name{ margin:0; font-size:1.6rem; font-weight:300 }
+.tag{ margin:0; color:var(--muted) }
 
-/* ===== sticky nav — compact width & height ===== */
+/* ===== sticky nav — compact, less rounded, slightly narrower than container ===== */
 .sticky-nav{
   position:sticky; top:22px; z-index:50;
-  display:flex; flex-wrap:wrap; gap:8px;
-  margin:18px 0 24px;
+  display:flex; align-items:center; flex-wrap:wrap; gap:8px;
+
+  /* center the bar and keep it a bit narrower than the page */
+  max-width:var(--nav-max-w);
+  margin:18px auto 24px;
+
   padding:var(--nav-pad-y) var(--nav-pad-x);
   background:rgba(25,20,17,.26);
   border:1px solid rgba(255,255,255,.06);
-  border-radius:14px;
+  border-radius:var(--nav-radius);
   box-shadow:none;
   -webkit-backdrop-filter:blur(4px);
   backdrop-filter:blur(4px);
-  font-size:.98rem;            /* text size inside bar */
+
+  font-size:.98rem;        /* consistent label size */
 }
 
-/* pills */
+/* pills (shorter height, less rounding) */
 .pill{
   padding:var(--pill-pad-y) var(--pill-pad-x);
   border-radius:var(--pill-radius);
   color:rgba(255,255,255,.78);
-  text-decoration:none; border:1px solid transparent;
-  font-weight:300; line-height:1.1;  /* keeps pills short */
+  text-decoration:none;
+  border:1px solid transparent;
+  font-weight:300;
+  line-height:1;           /* <-- keeps the pill physically shorter */
 }
 .pill:hover{ color:var(--text) }
 .pill.is-active{
@@ -166,4 +181,7 @@ a:hover{ border-bottom-color:currentColor }
 }
 .contact-grid h4{ margin:8px 0 2px 0; color:#cec4ba; font-weight:300; font-size:.96rem }
 .contact-grid p{ margin:0 }
-@media (max-width:720px){ .contact-grid .cols{ grid-template-columns:repeat(2, minmax(0,1fr)) } }
+@media (max-width:720px){
+  .contact-grid .cols{ grid-template-columns:repeat(2, minmax(0,1fr)) }
+  .avatar{ width:48px; height:48px }
+}
