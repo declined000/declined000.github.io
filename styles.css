@@ -140,18 +140,16 @@ h1,h2,h3,h4,h5{ font-weight:300; letter-spacing:.01em; margin:0 0 .35em }
 
 /* tabs */
 .pill{
-  /* Explicit height + flex alignment = same in Edge & Chrome */
   display:inline-flex;
   align-items:center;
   height:var(--pill-h);
   padding:0 var(--pill-pad-x);
-
   border-radius:var(--pill-radius);
   color:rgba(255,255,255,.78);
   text-decoration:none;
   border:1px solid transparent;
   font-weight:300;
-  line-height:1;        /* prevent vertical growth variance */
+  line-height:1;
   -webkit-appearance:none;
   appearance:none;
 }
@@ -192,4 +190,58 @@ a:hover{ border-bottom-color:currentColor }
 @media (max-width:720px){
   .contact-grid .cols{ grid-template-columns:repeat(2, minmax(0,1fr)) }
   .avatar{ width:48px; height:48px }
+}
+
+/* ===== PAPERS (new) ===== */
+.papers-list{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+  margin-top:8px;
+}
+.paper{
+  display:grid;
+  grid-template-columns: 180px 1fr;
+  gap:14px;
+  padding:14px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;
+  background:rgba(25,20,17,.26);
+  -webkit-backdrop-filter:blur(4px);
+  backdrop-filter:blur(4px);
+}
+.thumb{
+  margin:0;
+  align-self:start;
+}
+.thumb img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.06);
+  background:#0c0a09;
+}
+.paper .title{ margin:0 0 2px; font-weight:300; line-height:1.35 }
+.paper .authors{ margin:.1rem 0; color:#d8cfc6; font-size:.98rem }
+.paper .meta{ margin:.1rem 0 .4rem; color:#b8ada3; font-size:.95rem }
+.paper .tldr{ margin:.2rem 0 .5rem; color:#cfc6bd }
+
+.link-row{
+  display:flex; flex-wrap:wrap; gap:10px;
+}
+.btn-link{
+  display:inline-flex; align-items:center; height:32px; padding:0 12px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
+  color:#f1e9e2; font-size:.92rem; line-height:1; text-decoration:none;
+}
+.btn-link:hover{ border-color:rgba(255,255,255,.18) }
+
+@media (max-width:720px){
+  .paper{ grid-template-columns:1fr; }
+  .thumb img{ aspect-ratio:16/9 }
 }

@@ -22,7 +22,6 @@
         <div class="copy">
           <h1 class="big">
             <span class="faint">Hi—</span>
-            <!-- keep caret from causing a wrap -->
             <span class="typewrap">
               <span id="typeTarget" aria-live="polite"></span>
               <span id="caret" class="caret" aria-hidden="true"></span>
@@ -120,15 +119,90 @@
         </section>
       </section>
 
-      <!-- PAPERS -->
+      <!-- PAPERS (updated) -->
       <section class="view" id="view-papers" data-view="papers" hidden>
         <section class="card">
           <h2>Papers</h2>
-          <ul class="plain">
-            <li><a href="#">Analog vs. digital information in cells</a></li>
-            <li><a href="#">Top-down causation in bioelectricity</a></li>
-            <li><a href="#">Notes on regeneration and memory</a></li>
-          </ul>
+
+          <div class="papers-list">
+
+            <!-- Paper 1 -->
+            <article class="paper" role="listitem">
+              <figure class="thumb">
+                <!-- Put your local image at: img/papers/energy-transfer.png -->
+                <img src="img/papers/energy-transfer.png" alt="Thumbnail: Comparative Analysis of Energy Transfer Mechanisms for Neural Implants">
+              </figure>
+              <div class="paper-body">
+                <h3 class="title">Comparative Analysis of Energy Transfer Mechanisms for Neural Implants</h3>
+                <p class="authors">S. Miziev, <strong>W. A. Pawlak</strong>, N. Howard</p>
+                <p class="meta">Frontiers in Neuroscience, 2024</p>
+                <p class="tldr">Survey and benchmarking of power/energy delivery approaches for implantable neurotech.</p>
+                <div class="link-row">
+                  <a class="btn-link" href="https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2023.1320441/full" target="_blank" rel="noreferrer">Journal</a>
+                  <a class="btn-link" href="#" target="_blank" rel="noreferrer">PDF</a>
+                  <a class="btn-link" href="#" target="_blank" rel="noreferrer">Code</a>
+                  <a class="btn-link" href="#" target="_blank" rel="noreferrer">Slides</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Paper 2 -->
+            <article class="paper" role="listitem">
+              <figure class="thumb">
+                <!-- Put your local image at: img/papers/liquid-loihi2.png -->
+                <img src="img/papers/liquid-loihi2.png" alt="Thumbnail: Exploring liquid neural networks on Loihi-2">
+              </figure>
+              <div class="paper-body">
+                <h3 class="title">Exploring Liquid Neural Networks on Loihi-2</h3>
+                <p class="authors"><strong>W. A. Pawlak</strong>, M. Isik, D. Le, I. C. Dikmen</p>
+                <p class="meta">arXiv:2407.20590, 2024</p>
+                <p class="tldr">Implementation notes and performance results for LNNs on Intel’s neuromorphic platform.</p>
+                <div class="link-row">
+                  <a class="btn-link" href="https://arxiv.org/abs/2407.20590" target="_blank" rel="noreferrer">arXiv</a>
+                  <a class="btn-link" href="#" target="_blank" rel="noreferrer">PDF</a>
+                  <a class="btn-link" href="#" target="_blank" rel="noreferrer">Code</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Paper 3 -->
+            <article class="paper" role="listitem">
+              <figure class="thumb">
+                <!-- Put your local image at: img/papers/mixed-signal.png -->
+                <img src="img/papers/mixed-signal.png" alt="Thumbnail: Mixed-Signal Design Techniques Leveraging Brain Code Units">
+              </figure>
+              <div class="paper-body">
+                <h3 class="title">Advancing Neuromorphic Computing: Mixed-Signal Design Techniques Leveraging Brain Code Units and Fundamental Code Units</h3>
+                <p class="authors">M. Isik, S. Miziev, <strong>W. Pawlak</strong>, N. Howard</p>
+                <p class="meta">IEEE WCCI (WCCI 2024)</p>
+                <p class="tldr">Hardware methodologies bridging biological codes and mixed-signal neuromorphic circuits.</p>
+                <div class="link-row">
+                  <a class="btn-link" href="https://ieeexplore.ieee.org/abstract/document/10650231" target="_blank" rel="noreferrer">Proceedings</a>
+                  <a class="btn-link" href="#" target="_blank" rel="noreferrer">PDF</a>
+                  <a class="btn-link" href="#" target="_blank" rel="noreferrer">Poster</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Paper 4 -->
+            <article class="paper" role="listitem">
+              <figure class="thumb">
+                <!-- Put your local image at: img/papers/review-implants.png -->
+                <img src="img/papers/review-implants.png" alt="Thumbnail: Neuromorphic algorithms for brain implants — a review">
+              </figure>
+              <div class="paper-body">
+                <h3 class="title">Neuromorphic Algorithms for Brain Implants: a Review</h3>
+                <p class="authors"><strong>W. A. Pawlak</strong>, N. Howard</p>
+                <p class="meta">Frontiers in Neuroscience, 2025</p>
+                <p class="tldr">A systematic review of algorithmic approaches tailored for implantable neuromorphic systems.</p>
+                <div class="link-row">
+                  <a class="btn-link" href="https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2025.1570104/full" target="_blank" rel="noreferrer">Journal</a>
+                  <a class="btn-link" href="#" target="_blank" rel="noreferrer">PDF</a>
+                </div>
+              </div>
+            </article>
+
+          </div>
         </section>
       </section>
 
