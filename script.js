@@ -17,30 +17,68 @@ document.getElementById('y').textContent = new Date().getFullYear();
   setTimeout(step, delay);
 })();
 
-/* splash dot & transition */
+/* splash dot & transition — robust/cross-browser */
 const splash = document.getElementById('splash');
 const app    = document.getElementById('app');
 const dot    = document.getElementById('dot');
 
-if(splash && dot){
-  let mx = innerWidth/2, my = innerHeight/2;
-  const moveDot = (x,y)=>{ mx=x; my=y; dot.style.transform = `translate3d(${mx}px, ${my}px, 0) scale(1)`; };
-  addEventListener('mousemove', e=>moveDot(e.clientX, e.clientY));
-  addEventListener('touchmove', e=>{ const t=e.touches[0]; if(t) moveDot(t.clientX, t.clientY); }, {passive:true});
+if (splash && dot) {
+  let mx = innerWidth / 2, my = innerHeight / 2;
+  let isEntering = false;
 
-  const coverScale = (x,y,size)=>{ const w=innerWidth,h=innerHeight,r=size/2; const dx=Math.max(x,w-x), dy=Math.max(y,h-y); return (Math.hypot(dx,dy)+r)/r; };
-  const enter = (x=mx,y=my)=>{
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches){
-      splash.remove(); app.hidden=false; initRouter(); return;
-    }
-    splash.style.pointerEvents='none';
-    const size = parseFloat(getComputedStyle(dot).getPropertyValue('--dot-size')) || 12;
-    requestAnimationFrame(()=>{ dot.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${coverScale(x,y,size)})`; });
-    dot.addEventListener('transitionend', ()=>{ app.hidden=false; splash.remove(); initRouter(); }, {once:true});
+  const moveDot = (x, y) => {
+    if (isEntering) return;
+    mx = x; my = y;
+    dot.style.transform = `translate3d(${mx}px, ${my}px, 0) scale(1)`;
   };
-  addEventListener('click', e=>enter(e.clientX ?? mx, e.clientY ?? my));
-  addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' ') enter(mx,my); });
-}else{
+
+  addEventListener('mousemove', e => moveDot(e.clientX, e.clientY));
+  addEventListener('touchmove', e => {
+    if (isEntering) return;
+    const t = e.touches[0];
+    if (t) moveDot(t.clientX, t.clientY);
+  }, { passive: true });
+
+  const coverScale = (x, y, size) => {
+    const r = size / 2;
+    const w = innerWidth, h = innerHeight;
+    const dist = Math.max(
+      Math.hypot(x, y),
+      Math.hypot(w - x, y),
+      Math.hypot(x, h - y),
+      Math.hypot(w - x, h - y)
+    );
+    return (dist + r) / r;
+  };
+
+  const enter = (x = mx, y = my) => {
+    if (isEntering) return;
+    isEntering = true;
+
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      splash.remove(); app.hidden = false; initRouter(); return;
+    }
+
+    splash.style.pointerEvents = 'none';
+
+    const size = parseFloat(getComputedStyle(dot).getPropertyValue('--dot-size')) || 12;
+    requestAnimationFrame(() => {
+      dot.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${coverScale(x, y, size)})`;
+    });
+
+    const finish = () => {
+      app.hidden = false;
+      splash.remove();
+      initRouter();
+    };
+
+    dot.addEventListener('transitionend', finish, { once: true });
+    setTimeout(() => { if (document.body.contains(splash)) finish(); }, 1100); // failsafe
+  };
+
+  addEventListener('click', e => enter(e.clientX ?? mx, e.clientY ?? my));
+  addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') enter(mx, my); });
+} else {
   initRouter();
 }
 

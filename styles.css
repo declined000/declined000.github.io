@@ -13,15 +13,15 @@
   --containerTop:132px;
 
   /* nav sizing (taller, squarer) */
-  --nav-pad-y:12px;        /* bar vertical padding */
+  --nav-pad-y:12px;
   --nav-pad-x:16px;
-  --nav-radius:6px;       /* bar corner roundness */
-  --nav-max-w:880px;       /* bar max width (keeps it a bit narrower) */
+  --nav-radius:6px;
+  --nav-max-w:880px;
 
-  /* tab (pill) sizing */
-  --pill-h:44px;           /* explicit height for cross-browser match */
-  --pill-pad-x:18px;       /* left/right padding */
-  --pill-radius:4px;       /* squarer tabs */
+  /* tab sizing */
+  --pill-h:44px;
+  --pill-pad-x:18px;
+  --pill-radius:4px;
 
   /* splash dot */
   --dot-size:12px;
@@ -97,6 +97,7 @@ html,body{height:100%}
   margin-left:calc(var(--dot-size)/-2); margin-top:calc(var(--dot-size)/-2);
   background:var(--dot-color); border-radius:50%; pointer-events:none;
   transform:translate3d(50vw,50vh,0) scale(1);
+  transform-origin:center center; /* keep grow centered */
   transition:transform .65s cubic-bezier(.22,1,.36,1), opacity .2s ease;
   will-change:transform;
 }
@@ -119,7 +120,7 @@ h1,h2,h3,h4,h5{ font-weight:300; letter-spacing:.01em; margin:0 0 .35em }
 .name{ margin:0; font-size:1.6rem; font-weight:300 }
 .tag{ margin:0; color:var(--muted) }
 
-/* ===== sticky nav — taller, squarer, browser-consistent ===== */
+/* ===== sticky nav — taller, squarer ===== */
 .sticky-nav{
   position:sticky; top:22px; z-index:50;
   display:flex; align-items:center; flex-wrap:wrap; gap:10px;
@@ -184,7 +185,7 @@ a:hover{ border-bottom-color:currentColor }
   display:grid; grid-template-columns:repeat(3, minmax(0,1fr));
   gap:10px 18px; margin-top:6px
 }
-.contact-grid h4{ margin:8px 0 2px 0; color:#cec4ba; font-weight:300; font-size:.96rem }
+.contact-grid h3{ margin:8px 0 2px 0; color:#cec4ba; font-weight:300; font-size:.96rem }
 .contact-grid p{ margin:0 }
 
 @media (max-width:720px){
@@ -192,7 +193,10 @@ a:hover{ border-bottom-color:currentColor }
   .avatar{ width:48px; height:48px }
 }
 
-/* ===== PAPERS (new) ===== */
+/* ===== PAPERS ===== */
+.papers-note{ margin:.25rem 0 1rem; color:#cfc6bd }
+.year{ margin:1.2rem 0 .5rem; font-weight:300; color:#e9e0d7 }
+
 .papers-list{
   display:grid;
   grid-template-columns:1fr;
@@ -212,18 +216,11 @@ a:hover{ border-bottom-color:currentColor }
   cursor:pointer;
   transition:border-color .15s ease, background-color .15s ease;
 }
-.thumb{
-  margin:0;
-  align-self:start;
-}
+.thumb{ margin:0; align-self:start }
 .thumb img{
-  display:block;
-  width:100%;
-  height:auto;
-  aspect-ratio:4/3;
-  object-fit:cover;
-  border-radius:8px;
-  border:1px solid rgba(255,255,255,.06);
+  display:block; width:100%; height:auto;
+  aspect-ratio:4/3; object-fit:cover;
+  border-radius:8px; border:1px solid rgba(255,255,255,.06);
   background:#0c0a09;
 }
 .paper .title{ margin:0 0 2px; font-weight:300; line-height:1.35 }
@@ -231,9 +228,7 @@ a:hover{ border-bottom-color:currentColor }
 .paper .meta{ margin:.1rem 0 .4rem; color:#b8ada3; font-size:.95rem }
 .paper .tldr{ margin:.2rem 0 .5rem; color:#cfc6bd }
 
-.link-row{
-  display:flex; flex-wrap:wrap; gap:10px;
-}
+.link-row{ display:flex; flex-wrap:wrap; gap:10px }
 .btn-link{
   display:inline-flex; align-items:center; height:32px; padding:0 12px;
   border-radius:8px;
@@ -243,11 +238,10 @@ a:hover{ border-bottom-color:currentColor }
 }
 .btn-link:hover{ border-color:rgba(255,255,255,.18) }
 
-/* make entire paper card feel interactive */
 .paper:hover{ border-color:rgba(255,255,255,.12) }
 .paper:focus{ outline:2px solid rgba(255,255,255,.28); outline-offset:2px }
 
 @media (max-width:720px){
-  .paper{ grid-template-columns:1fr; }
+  .paper{ grid-template-columns:1fr }
   .thumb img{ aspect-ratio:16/9 }
 }
