@@ -91,4 +91,31 @@ function initRouter(){
   addEventListener('hashchange', route);
   if(!location.hash) history.replaceState(null,'','#home');
   route();
+
+  /* make entire paper card clickable (delegated) */
+  const papersView = document.getElementById('view-papers');
+  if(papersView){
+    papersView.addEventListener('click', function(e){
+      const card = e.target.closest('.paper');
+      if(!card) return;
+      const primaryLink = card.querySelector('.link-row a');
+      if(primaryLink){
+        const url = primaryLink.getAttribute('href');
+        const target = primaryLink.getAttribute('target') || '_self';
+        if(url){ window.open(url, target); }
+      }
+    });
+
+    // keyboard accessibility
+    papersView.querySelectorAll('.paper').forEach(card=>{
+      card.setAttribute('tabindex','0');
+      card.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter' || ev.key===' '){
+          ev.preventDefault();
+          const link = card.querySelector('.link-row a');
+          if(link){ link.click(); }
+        }
+      });
+    });
+  }
 }

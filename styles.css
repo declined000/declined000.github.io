@@ -209,6 +209,8 @@ a:hover{ border-bottom-color:currentColor }
   background:rgba(25,20,17,.26);
   -webkit-backdrop-filter:blur(4px);
   backdrop-filter:blur(4px);
+  cursor:pointer;
+  transition:border-color .15s ease, background-color .15s ease;
 }
 .thumb{
   margin:0;
@@ -240,6 +242,10 @@ a:hover{ border-bottom-color:currentColor }
   color:#f1e9e2; font-size:.92rem; line-height:1; text-decoration:none;
 }
 .btn-link:hover{ border-color:rgba(255,255,255,.18) }
+
+/* make entire paper card feel interactive */
+.paper:hover{ border-color:rgba(255,255,255,.12) }
+.paper:focus{ outline:2px solid rgba(255,255,255,.28); outline-offset:2px }
 
 @media (max-width:720px){
   .paper{ grid-template-columns:1fr; }
